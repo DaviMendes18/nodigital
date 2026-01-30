@@ -18,7 +18,8 @@
 
     <main class="flex-grow container mx-auto px-6 py-12">
         <div class="flex flex-col items-center mb-16">
-            <img src="11zon_cropped.png" alt="Nó Digital Logo" class="w-32 h-32 mb-6 object-contain">
+            <img src="digital.jpeg" alt="Nó Digital Logo" class="w-32 h-32 mb-6 object-contain rounded-xl">
+            
             <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-2 text-center text-white">NÓ DIGITAL</h1>
             <p class="text-zinc-500 font-medium tracking-widest text-sm uppercase">Sistemas de Elite</p>
         </div>
@@ -103,10 +104,12 @@
         function solicitarOrcamento() {
             if (!selecionado) return;
             
-            const numero = "5511999999999"; // TROQUE PELO SEU NÚMERO
+            const numero = "5511999999999"; // <-- COLOQUE O SEU NÚMERO AQUI
             const servico = selecionado.replace('-', ' ').toUpperCase();
             const mensagem = encodeURIComponent(`Olá Nó Digital! Gostaria de um orçamento para o serviço de: ${servico}.`);
-            window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+            
+            // Usando send?phone para melhor compatibilidade
+            window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`, '_blank');
         }
     </script>
 </body>
